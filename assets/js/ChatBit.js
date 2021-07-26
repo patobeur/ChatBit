@@ -18,6 +18,7 @@ class ChatBit {
 		this.submitActionDiv = document.getElementById('chatbit')
 		this.biggerActionDiv = document.getElementById('bigger')
 		this.fixchatActionDiv = document.getElementById('fixchat')
+		this.clearStorageActionDiv = document.getElementById('clearstorage')
 		// local Datas
 		this.chatSize = { num: 0, sizes: ['sm', 'md', 'xl'] };
 		// this.chatDiv.classList.add(this.chatSize[this.chatSize.num].sizes)
@@ -25,6 +26,7 @@ class ChatBit {
 		this.submitActionDiv.addEventListener('click', this.checkSend, false)
 		this.biggerActionDiv.addEventListener('click', this.get_biggerChat)
 		this.fixchatActionDiv.addEventListener('click', this.get_fixedChat, false)
+		this.clearStorageActionDiv.addEventListener('click', localStorage.clear(), false)
 		this.get_biggerChat()
 
 	}
@@ -36,6 +38,9 @@ class ChatBit {
 			MyDataz.fixchatActionDiv.classList.remove('active') :
 			MyDataz.fixchatActionDiv.classList.add('active')
 	}
+	// clear_Storage = () => {
+	// 	MyDataz.clear_Storage();
+	// }
 	get_biggerChat = (eve) => {
 		this.chatDiv.classList.remove(this.chatSize.sizes[this.chatSize.num])
 		this.chatSize.num = (this.chatSize.num < this.chatSize.sizes.length) ? this.chatSize.num + 1 : 0

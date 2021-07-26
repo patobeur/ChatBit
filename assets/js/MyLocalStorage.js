@@ -19,7 +19,7 @@ class MyLocalStorage extends ChatBit {
 	// get_StorageItem(itemname) { return (localStorage.itemname) ? localStorage.getItem(itemname) : false }
 	// remove_StorageItem(itemname) { return localStorage.itemname ? localStorage.removeItem(itemname) : false }
 	// set_StorageItem(itemname, data) { localStorage.setItem(itemname, data) }
-	// clear_Storage() { localStorage.clear(); }
+	clear_Storage = () => { localStorage.clear(); }
 	// ---
 
 	is_known() {
@@ -33,13 +33,14 @@ class MyLocalStorage extends ChatBit {
 			this.add_message('New around ?', 'text')
 			this.add_message('Let store some data like a arbitrary Name !', 'text')
 			this.add_message('what is your name ?', 'text')
-			this.botQuestion = { id: 1, name: 'name', sentence: ff + ' is your name ? (y/n)' }
+			this.botQuestion = { id: 1, name: 'name', sentence: ' is your name ? (y/n)' }
 		}
 	}
 	redirect_add_message(content, type, who, uid) {
 		this.add_message(content, type, who, uid)
 		if (this.botQuestion.name && this.botQuestion.sentence) {
-			this.add_message(this.botQuestion.sentence, 'text')
+			this.add_message(content + ", " + this.botQuestion.sentence, 'text')
+			this.botQuestion = { id: 2, name: 'name', sentence: ' sorry cant save this right now... Dev is sleeping...' }
 		}
 	}
 }
