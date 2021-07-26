@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  background-color: white;
+  font-family: arial;
+  line-height: 100%;
+  font-size: 0.9rem;
+}
+
+body.daymode {
+  color: black;
+  background-color: white;
+}
+
+body.daymode #fullscreen {
+  outline: 1px dashed black;
+}
+
+body.nightmode {
+  color: white;
+  background-color: black;
+}
+
+body.nightmode #fullscreen {
+  outline: 1px dashed white;
+}
+
+body #navigation {
+  padding: 0;
+  width: 782px;
+  margin: 20px auto 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-transition-property: margin, width;
+  transition-property: margin, width;
+  -webkit-transition-duration: 3s, 5s;
+          transition-duration: 3s, 5s;
+}
+
+body #navigation ol {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  -webkit-transition-property: border-radius;
+  transition-property: border-radius;
+  -webkit-transition-duration: 3s, 5s;
+          transition-duration: 3s, 5s;
+}
+
+body #navigation ol ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+  margin: 0;
+  background-color: black;
+}
+
+body #navigation ol ul li {
+  color: white;
+  padding: 0.2rem 0.5rem;
+}
+
+body #navigation.fixedtop ol {
+  border-top-right-radius: 0rem;
+  border-top-left-radius: 0rem;
+}
+
+body #navigation.fixedtop ol ul {
+  background-color: #a30505;
+}
+
+body #formulaire {
+  padding: 0 20px;
+  width: 752px;
+  margin: 20px auto 0 auto;
+}
+
+body #fullscreen {
+  margin: 20px auto;
+  padding: 20px;
+  width: 752px;
+  max-width: 752px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  row-gap: 0.5rem;
+}
+
+body #fullscreen .row {
+  width: calc(100% - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+}
+
+body #fullscreen .row .col {
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+body #fullscreen .row .col.jobname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body #fullscreen .row .col.jobname h1 {
+  font-size: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+body #fullscreen .row .col.entete {
+  border-bottom: unset;
+}
+
+body #fullscreen .row.titre {
+  border-bottom: 2px solid black;
+}
+
+body #fullscreen .exp.row .col.jobname {
+  width: 25%;
+  height: 100%;
+}
+
+body #fullscreen .exp.row .col.task {
+  height: 100%;
+  width: 75%;
+  border-bottom: 1px solid #818181;
+}
+
+body #fullscreen .exp.row .col.task ol > ul {
+  list-style: inside;
+  margin: 0;
+}
+
+@media print {
+  #navigation,
+  #formulaire {
+    display: none;
+  }
+  #fullscreen {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    background: #804040;
+    outline: unset;
+  }
+}
+/*# sourceMappingURL=css.css.map */
