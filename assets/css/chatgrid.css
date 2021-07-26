@@ -209,6 +209,11 @@ body #chat-container:hover .chat-header .three button, body #chat-container.acti
   height: 100%;
 }
 
+body #chat-container:hover .chat-header .three button.active, body #chat-container.active .chat-header .three button.active, body #chat-container.open .chat-header .three button.active {
+  background-color: green;
+  border: 0;
+}
+
 body #chat-container:hover.sm, body #chat-container.active.sm, body #chat-container.open.sm {
   width: 250px;
   height: 250px;

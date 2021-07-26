@@ -156,11 +156,11 @@
 			<div id="test"></div>
 
 		</div>
-		<div id="chat-container" class="sm">
+		<div id="chat-container">
 			<div class="chat-header">
 				<div class="one">&#128172;ChatBit !</div>
-				<div class="two"><button id="bigger">🗛</button></div>
-				<div class="three"><button id="fixchat">📌</button></div>
+				<div class="two"><button id="bigger" title="Click to change size">🗛</button></div>
+				<div class="three"><button id="fixchat" title="Click to fixe menu or not">📌</button></div>
 			</div>
 			<div id="messages-box" class="messages">
 			</div>
@@ -173,7 +173,6 @@
 		</div>
 		<script>
 			document.addEventListener("scroll", (e) => {
-
 				let navigation = document.getElementById("navigation")
 				if (window.pageYOffset > 20) {
 					if (!navigation.classList.contains('fixedtop')) {

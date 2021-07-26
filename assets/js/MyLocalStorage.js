@@ -6,7 +6,7 @@ class MyLocalStorage extends ChatBit {
 		this.password = 'patobeur'
 		this.mydataz = localStorage
 		// Class From Beyond ???
-		this.ChatBot = new ChatBit();
+		// this.ChatBot = new ChatBit();
 		// store current bot question
 		this.botQuestion = { id: false, name: false, sentence: false }
 		// --
@@ -26,20 +26,20 @@ class MyLocalStorage extends ChatBit {
 		let mls_user = localStorage.getItem('mls_user')
 		if (mls_user) {
 			// console.log('welcome back ! ' + mls_user)
-			this.ChatBot.add_message('welcome back ! ' + mls_user, 'text')
+			this.add_message('welcome back ! ' + mls_user, 'text')
 		} else {
 			localStorage.setItem('mls_user', this.password)
 			// console.log('need profil creation ! ')
-			this.ChatBot.add_message('New around ?', 'text')
-			this.ChatBot.add_message('Let store some data like a arbitrary Name !', 'text')
-			this.ChatBot.add_message('what is your name ?', 'text')
+			this.add_message('New around ?', 'text')
+			this.add_message('Let store some data like a arbitrary Name !', 'text')
+			this.add_message('what is your name ?', 'text')
 			this.botQuestion = { id: 1, name: 'name', sentence: ff + ' is your name ? (y/n)' }
 		}
 	}
 	redirect_add_message(content, type, who, uid) {
-		this.ChatBot.add_message(content, type, who, uid)
+		this.add_message(content, type, who, uid)
 		if (this.botQuestion.name && this.botQuestion.sentence) {
-			this.ChatBot.add_message(this.botQuestion.sentence, 'text')
+			this.add_message(this.botQuestion.sentence, 'text')
 		}
 	}
 }

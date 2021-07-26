@@ -12,36 +12,34 @@ class ChatBit {
 				time: 0
 			}
 		}
-		// local Datas
-		this.chatSize = { num: 0, sizes: ['sm', 'md', 'xl'] };
 		// Targets
 		this.inputValue = document.getElementById('chatput')
 		this.chatDiv = document.getElementById('chat-container')
 		this.submitActionDiv = document.getElementById('chatbit')
 		this.biggerActionDiv = document.getElementById('bigger')
 		this.fixchatActionDiv = document.getElementById('fixchat')
+		// local Datas
+		this.chatSize = { num: 0, sizes: ['sm', 'md', 'xl'] };
+		// this.chatDiv.classList.add(this.chatSize[this.chatSize.num].sizes)
 		// Targets Listeners	
-		this.submitActionDiv.addEventListener('click', this.checkSend)
+		this.submitActionDiv.addEventListener('click', this.checkSend, false)
 		this.biggerActionDiv.addEventListener('click', this.get_biggerChat)
-		this.fixchatActionDiv.addEventListener('click', this.get_fixedChat)
+		this.fixchatActionDiv.addEventListener('click', this.get_fixedChat, false)
+		this.get_biggerChat()
 
 	}
 	get_fixedChat() {
-		let isopen = MyDataz.chatDiv.classList.contains('open')
-		if (isopen) {
-			MyDataz.chatDiv.classList.remove('open')
-		}
-		else {
+		MyDataz.chatDiv.classList.contains('open') ?
+			MyDataz.chatDiv.classList.remove('open') :
 			MyDataz.chatDiv.classList.add('open')
-		}
+		MyDataz.fixchatActionDiv.classList.contains('active') ?
+			MyDataz.fixchatActionDiv.classList.remove('active') :
+			MyDataz.fixchatActionDiv.classList.add('active')
 	}
-	get_biggerChat() {
-		let oldnum = MyDataz.chatSize.num
-		let oldSize = MyDataz.chatSize.sizes[oldnum]
-		MyDataz.chatSize.num = (MyDataz.chatSize.num < MyDataz.chatSize.sizes.length) ? MyDataz.chatSize.num + 1 : 0
-		let newSize = MyDataz.chatSize.sizes[MyDataz.chatSize.num]
-		MyDataz.chatDiv.classList.remove(oldSize)
-		MyDataz.chatDiv.classList.add(newSize)
+	get_biggerChat = (eve) => {
+		this.chatDiv.classList.remove(this.chatSize.sizes[this.chatSize.num])
+		this.chatSize.num = (this.chatSize.num < this.chatSize.sizes.length) ? this.chatSize.num + 1 : 0
+		this.chatDiv.classList.add(this.chatSize.sizes[this.chatSize.num])
 	}
 	add_message(content, type, who = 'bot', uid = false, sentence = false) {
 		let cleancontent = content // need to be cleaned 
