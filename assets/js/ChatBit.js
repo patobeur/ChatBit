@@ -48,7 +48,7 @@ class ChatBit {
 		// ---
 		let newcontentDiv = document.createElement('div')
 		newcontentDiv.className = cleantype
-		newcontentDiv.textContent = '#' + nbMess + ':' + cleancontent
+		newcontentDiv.textContent = (who === 'bot' ? '🤖' : '🎓') + nbMess + ':' + cleancontent
 		// ---
 		let newmessDiv = document.createElement('div')
 		newmessDiv.id = 'mess-' + nbMess
