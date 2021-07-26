@@ -1,6 +1,6 @@
 "use strict";
 let nbMess = 0;
-// -----------------------------
+// ------------------------ -----
 class ChatBit {
 	constructor() {
 		// local Datas
