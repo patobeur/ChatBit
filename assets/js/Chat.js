@@ -4,16 +4,17 @@ let nbMess = 0;
 class ChatBit {
 	constructor() {
 		// local Datas
-		this.messages = {
-			0: {
-				mess: 'Bonjour !',
-				type: 'text',
-				id: 'Bot',
-				time: 0
-			}
-		}
+		// this.messages = {
+		// 	0: {
+		// 		mess: 'Bonjour !',
+		// 		type: 'text',
+		// 		id: 'Bot',
+		// 		time: 0
+		// 	}
+		// }
 		// Targets
-		this.inputValue = document.getElementById('chatput')
+		this.icons = { bot: '🤖', me: '🎓' }
+		this.chatInput = document.getElementById('chatput')
 		this.chatDiv = document.getElementById('chat-container')
 		this.submitActionDiv = document.getElementById('chatbit')
 		this.biggerActionDiv = document.getElementById('bigger')
@@ -26,34 +27,31 @@ class ChatBit {
 		this.submitActionDiv.addEventListener('click', this.checkSend, false)
 		this.biggerActionDiv.addEventListener('click', this.get_biggerChat)
 		this.fixchatActionDiv.addEventListener('click', this.get_fixedChat, false)
-		this.clearStorageActionDiv.addEventListener('click', localStorage.clear(), false)
+		this.clearStorageActionDiv.addEventListener('click', this.clearStorage, false)
 		this.get_biggerChat()
 
 	}
-	get_fixedChat() {
-		MyDataz.chatDiv.classList.contains('open') ?
-			MyDataz.chatDiv.classList.remove('open') :
-			MyDataz.chatDiv.classList.add('open')
-		MyDataz.fixchatActionDiv.classList.contains('active') ?
-			MyDataz.fixchatActionDiv.classList.remove('active') :
-			MyDataz.fixchatActionDiv.classList.add('active')
+
+	clearStorage = () => {
+		this.redirect_clear_Storage();
 	}
-	// clear_Storage = () => {
-	// 	MyDataz.clear_Storage();
-	// }
+	get_fixedChat = () => {
+		this.chatDiv.classList.contains('open') ? this.chatDiv.classList.remove('open') : this.chatDiv.classList.add('open')
+		this.fixchatActionDiv.classList.contains('active') ? this.fixchatActionDiv.classList.remove('active') : this.fixchatActionDiv.classList.add('active')
+	}
 	get_biggerChat = (eve) => {
 		this.chatDiv.classList.remove(this.chatSize.sizes[this.chatSize.num])
 		this.chatSize.num = (this.chatSize.num < this.chatSize.sizes.length) ? this.chatSize.num + 1 : 0
 		this.chatDiv.classList.add(this.chatSize.sizes[this.chatSize.num])
 	}
-	add_message(content, type, who = 'bot', uid = false, sentence = false) {
+	add_message = (content, type, who = 'bot', uid = false, sentence = false) => {
 		let cleancontent = content // need to be cleaned 
 		let cleantype = type // need to be cleaned 
 		let cleanwho = who // need to be cleaned 
 		// ---
 		let newcontentDiv = document.createElement('div')
 		newcontentDiv.className = cleantype
-		newcontentDiv.textContent = (who === 'bot' ? '🤖' : '🎓') + nbMess + ':' + cleancontent
+		newcontentDiv.textContent = this.icons[who] + nbMess + ':' + cleancontent
 		// ---
 		let newmessDiv = document.createElement('div')
 		newmessDiv.id = 'mess-' + nbMess
@@ -68,17 +66,27 @@ class ChatBit {
 		nbMess++
 		setTimeout(this.set_chatOff, 5000, 'test')
 	}
-
-	checkSend() {
-		let message = MyDataz.inputValue
-		if (message.value.length > 0) {
-			MyDataz.redirect_add_message(message.value, 'text', 'me')
-			message.value = ""
+	checkSend = () => {
+		let intputValue = this.chatInput.value
+		if (intputValue.length > 0) {
+			this.reroot_add_message(intputValue, 'text', 'me')
+			this.chatInput.value = ""
+		}
+	}
+	checkEnterKey = () => {
+		if (this.chatInput.matches(':focus')) {
+			this.checkSend()
 		}
 	}
 	set_chatOff = (content = "vide") => {
 		document.getElementById('chat-container').classList.remove('active')
-		//console.log('chatoff:' + content)
 	}
 
+
+	// submit_question = () => {
+	// todo
+	// }
+	// clear_Storage = () => {
+	// 	MyDataz.clear_Storage();
+	// }
 }

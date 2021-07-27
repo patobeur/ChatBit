@@ -57,7 +57,6 @@ body {
 			grid-column: 1;
 			grid-row: 2;
 			background-color: rgb(255, 255, 255);
-			scrollbar-width: thin;
 			display: flex;
 			flex-direction: column;
 			align-items: unset;
@@ -66,16 +65,17 @@ body {
 			// border-left: 1px solid #1978f0;
 			// border-right: 1px solid #1978f0;
 			font-size: 1rem;
+			scrollbar-width: thin;
 			.bot,
 			.me {
 				width: 100%;
 				height: max-content;
 				max-width: 100%;
-				padding: 0.2rem;
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
-				margin-bottom: 0.5rem;
+				padding: 0.2rem 0.5rem;
+				margin-bottom: 0.5rem 0.5rem;
 				.text {
 					position: relative;
 					width: max-content;
@@ -84,28 +84,30 @@ body {
 					text-align: right;
 					background-color: rgba(14, 69, 141, 0.849);
 					border-radius: 0.5rem;
-					padding: 0.5rem 0.8rem;
+					padding: 1rem 0.5rem;
+					border: 1px solid black;
 					&:after {
 						position: absolute;
-						bottom: -13px;
-						left: 13px;
+						bottom: -16px;
+						right: 16px;
 						// content: "\1F4AC";
-						content: url(../svg/phyl_bot.svg);
-						width: 13px;
-						height: 13px;
+						content: url(../svg/phyl_bot_b.svg);
+						width: 16px;
+						height: 16px;
 						// z-index: -1;
 					}
 				}
 			}
 			.me {
 				align-items: flex-start;
+				align-self: flex-start;
 				.text {
 					text-align: left;
 					background-color: rgba(18, 141, 14, 0.849);
 					&:after {
-						left: unset;
-						right: 13px;
-						content: url(../svg/phyl_me.svg);
+						right: unset;
+						left: 13px;
+						content: url(../svg/phyl_me_b.svg);
 					}
 				}
 			}
@@ -243,5 +245,10 @@ body {
 @media print {
 	#chat-container {
 		display: none;
+	}
+}
+span.edit {
+	&:hover {
+		outline: 1px dashed red;
 	}
 }

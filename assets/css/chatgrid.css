@@ -85,7 +85,6 @@ body #chat-container .messages {
   -ms-grid-row: 2;
   grid-row: 2;
   background-color: white;
-  scrollbar-width: thin;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,6 +97,7 @@ body #chat-container .messages {
           align-items: unset;
   overflow: hidden;
   font-size: 1rem;
+  scrollbar-width: thin;
 }
 
 body #chat-container .messages .bot,
@@ -107,7 +107,6 @@ body #chat-container .messages .me {
   height: -moz-max-content;
   height: max-content;
   max-width: 100%;
-  padding: 0.2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,7 +117,8 @@ body #chat-container .messages .me {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.5rem 0.5rem;
 }
 
 body #chat-container .messages .bot .text,
@@ -134,23 +134,26 @@ body #chat-container .messages .me .text {
   text-align: right;
   background-color: rgba(14, 69, 141, 0.849);
   border-radius: 0.5rem;
-  padding: 0.5rem 0.8rem;
+  padding: 1rem 0.5rem;
+  border: 1px solid black;
 }
 
 body #chat-container .messages .bot .text:after,
 body #chat-container .messages .me .text:after {
   position: absolute;
-  bottom: -13px;
-  left: 13px;
-  content: url(../svg/phyl_bot.svg);
-  width: 13px;
-  height: 13px;
+  bottom: -16px;
+  right: 16px;
+  content: url(../svg/phyl_bot_b.svg);
+  width: 16px;
+  height: 16px;
 }
 
 body #chat-container .messages .me {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 body #chat-container .messages .me .text {
@@ -159,9 +162,9 @@ body #chat-container .messages .me .text {
 }
 
 body #chat-container .messages .me .text:after {
-  left: unset;
-  right: 13px;
-  content: url(../svg/phyl_me.svg);
+  right: unset;
+  left: 13px;
+  content: url(../svg/phyl_me_b.svg);
 }
 
 body #chat-container:hover, body #chat-container.active, body #chat-container.open {
@@ -351,5 +354,9 @@ body.nightmode #chat {
   #chat-container {
     display: none;
   }
+}
+
+span.edit:hover {
+  outline: 1px dashed red;
 }
 /*# sourceMappingURL=chatgrid.css.map */
