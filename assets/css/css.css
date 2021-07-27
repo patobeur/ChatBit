@@ -13,24 +13,24 @@
 body {
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
-  background-color: white;
+  background-repeat: no-repeat;
   font-family: arial;
   line-height: 100%;
   font-size: 0.9rem;
-}
-
-body.daymode {
   color: black;
-  background-color: white;
+  background-image: url(/assets/png/day.png);
+  background-color: deepskyblue;
+  background-attachment: fixed;
 }
 
-body.daymode #fullscreen {
+body #fullscreen {
   outline: 1px dashed black;
 }
 
 body.nightmode {
   color: white;
   background-color: black;
+  background-image: url(/assets/png/moon.png);
 }
 
 body.nightmode #fullscreen {
@@ -93,6 +93,7 @@ body #formulaire {
 }
 
 body #fullscreen {
+  background-color: white;
   margin: 20px auto;
   padding: 20px;
   width: 752px;

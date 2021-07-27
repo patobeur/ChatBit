@@ -10,6 +10,7 @@ window.addEventListener('load', () => {
 	document.onkeydown = (eventkeydown) => {
 		if (eventkeydown.key === "Enter") { MyDataz.checkEnterKey() }
 	};
+
 }, false)
 
 // for (let i = 1; i < 30; i++) {

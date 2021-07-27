@@ -11,8 +11,26 @@ class Editing {
 		}
 		// local Datas
 		this.templateCv = this.get_templateCv
+		this.switchdaymode(1)
+		this.add_listeners()
 	}
 
+	switchdaymode = (first) => {
+		let daymode = localStorage.getItem('mls_daymode');
+		if (first || daymode === null) {// first time
+			daymode = daymode === null ? true : (daymode === 'true' ? true : false)
+		} else {// welcome back
+			daymode = daymode === 'true' ? false : true
+		}
+		document.body.className = !daymode ? "nightmode" : "daymode"
+		document.getElementById("dayornight").textContent = daymode ? "Switch Dark" : "Switch Ligth"
+		localStorage.setItem('mls_daymode', daymode)
+	}
+	add_listeners = () => {
+		document.getElementById('dayornight').addEventListener('click', () => {
+			Curriculum.switchdaymode();
+		})
+	}
 	get_templateCv = () => {
 		return {
 			intro: {
@@ -55,5 +73,9 @@ class Editing {
 				temporaryName: 'toto'
 			}
 		};
+	}
+	add_div = (id) => {
+		let div = document.createElement('div')
+		div.iv = id
 	}
 }

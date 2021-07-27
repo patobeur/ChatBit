@@ -6,26 +6,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>&#128172; Chatbit !</title>
-		<link rel="icon" type="image/svg+xml" href="moncv.svg">
+		<link rel="icon" type="image/svg+xml" href="assets/svg/favicon.svg">
 		<link rel='stylesheet' id='base-css' href='assets/css/css.css?ver=2' type='text/css' media='all' />
 		<link rel='stylesheet' id='chat-css' href='assets/css/chatgrid.css?ver=2' type='text/css' media='all' />
 	</head>
 
-	<body class="daymode">
-		<script>
-			let daymode = true
-			function switchdaymode() {
-				//code
-				daymode = daymode ? false : true;
-				document.body.className = daymode ? "daymode" : "nightmode"
-				document.getElementById("dayornight").textContent = daymode ? "Switch Dark" : "Switch Ligth"
-				return false;
-			}
-		</script>
+	<body>
 		<div id="navigation">
 			<ol>
 				<ul>
-					<li id="dayornight" onclick='return switchdaymode()' ;>Switch Dark</li>
+					<li id="dayornight">Switch Dark</li>
 					<li id="dayornigkht">-------------</li>
 					<li id="button-edit">Modifier</li>
 					<li>Mon Profil</li>
@@ -40,7 +30,7 @@
 		<div id="fullscreen">
 			<div id="intro" class="row entete">
 				<div id="intro-personalinfo" class="col personalinfo">
-					<span id="name" class="edit">Kung-Lee</span> <span id="surname" class="edit">Foo</span><br>
+					<span id="name" class="editable">Kung-Lee</span> <span id="surname" class="editable">Foo</span><br>
 					2bis, Dragon's Street<br>
 					China 40000<br>
 					19 Ans<br>
@@ -206,6 +196,8 @@
 					navigation.classList.remove('fixedtop')
 				}
 			})
+		</script>
+		<script>
 		</script>
 		<script src='assets/js/Chat.js' id='chat-js'></script>
 		<script src='assets/js/MyLocalStorage.js' id='chat-js'></script>

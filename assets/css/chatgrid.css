@@ -1,3 +1,9 @@
+body {
+  background-image: url(/assets/png/day.png);
+  background-repeat: no-repeat;
+  background-color: deepskyblue;
+}
+
 body button {
   border: 2px solid #ffffff;
   display: -webkit-box;
@@ -10,6 +16,12 @@ body button {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 1.3rem;
+}
+
+body a,
+body a:visited,
+body a:active {
+  color: #050050;
 }
 
 body #chat-container {
@@ -34,6 +46,8 @@ body #chat-container {
       grid-template-rows: 2.5rem 1fr 3rem;
   -webkit-transition: height 1s ease-in, width 1s ease-in;
   transition: height 1s ease-in, width 1s ease-in;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.192);
 }
 
 body #chat-container .chat-header {
@@ -340,9 +354,28 @@ body #chat-container .chat-form .form-box .submit button {
   font-size: 1.3rem;
 }
 
-body.daymode #chat-container {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.192);
+body .editable:hover {
+  color: #eeff00;
+  background-color: black;
+  outline: 1px dashed black;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+body.nightmode {
+  background-image: url(/assets/png/moon.png);
+}
+
+body.nightmode a,
+body.nightmode a:visited,
+body.nightmode a:active {
+  color: #14ec00;
+}
+
+body.nightmode .editable:hover {
+  color: black;
+  background-color: white;
+  outline-color: #eeff00;
 }
 
 body.nightmode #chat {
@@ -354,9 +387,5 @@ body.nightmode #chat {
   #chat-container {
     display: none;
   }
-}
-
-span.edit:hover {
-  outline: 1px dashed red;
 }
 /*# sourceMappingURL=chatgrid.css.map */

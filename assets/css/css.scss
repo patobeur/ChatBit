@@ -9,20 +9,21 @@
 }
 body {
 	transition: background-color 0.5s ease;
-	background-color: rgb(255, 255, 255);
+	background-repeat: no-repeat;
 	font-family: arial;
 	line-height: 100%;
 	font-size: 0.9rem;
-	&.daymode {
-		color: black;
-		background-color: rgb(255, 255, 255);
-		#fullscreen {
-			outline: 1px dashed rgb(0, 0, 0);
-		}
+	color: black;
+	background-image: url(/assets/png/day.png);
+	background-color: deepskyblue;
+	background-attachment: fixed;
+	#fullscreen {
+		outline: 1px dashed rgb(0, 0, 0);
 	}
 	&.nightmode {
 		color: white;
 		background-color: rgb(0, 0, 0);
+		background-image: url(/assets/png/moon.png);
 		#fullscreen {
 			outline: 1px dashed white;
 		}
@@ -72,6 +73,7 @@ body {
 		// top: 0;
 	}
 	#fullscreen {
+		background-color: rgb(255, 255, 255);
 		margin: 20px auto;
 		padding: 20px;
 		width: 752px;
