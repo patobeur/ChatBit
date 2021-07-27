@@ -6,11 +6,6 @@ body {
 		justify-content: center;
 		font-size: 1.3rem;
 	}
-	a,
-	a:visited,
-	a:active {
-		color: rgb(5, 0, 80);
-	}
 	#chat-container {
 		position: fixed;
 		bottom: 0.5rem;
@@ -250,11 +245,6 @@ body {
 		}
 	}
 	&.nightmode {
-		a,
-		a:visited,
-		a:active {
-			color: rgb(20, 236, 0);
-		}
 		.editable {
 			&:hover {
 				color: rgb(0, 0, 0);
@@ -269,7 +259,9 @@ body {
 	}
 }
 @media print {
-	#chat-container {
-		display: none;
+	body {
+		#chat-container {
+			display: none;
+		}
 	}
 }

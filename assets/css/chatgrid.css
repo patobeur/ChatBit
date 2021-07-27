@@ -1,9 +1,3 @@
-body {
-  background-image: url(/assets/png/day.png);
-  background-repeat: no-repeat;
-  background-color: deepskyblue;
-}
-
 body button {
   border: 2px solid #ffffff;
   display: -webkit-box;
@@ -16,12 +10,6 @@ body button {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 1.3rem;
-}
-
-body a,
-body a:visited,
-body a:active {
-  color: #050050;
 }
 
 body #chat-container {
@@ -362,16 +350,6 @@ body .editable:hover {
   border-radius: 0.5rem;
 }
 
-body.nightmode {
-  background-image: url(/assets/png/moon.png);
-}
-
-body.nightmode a,
-body.nightmode a:visited,
-body.nightmode a:active {
-  color: #14ec00;
-}
-
 body.nightmode .editable:hover {
   color: black;
   background-color: white;
@@ -384,7 +362,7 @@ body.nightmode #chat {
 }
 
 @media print {
-  #chat-container {
+  body #chat-container {
     display: none;
   }
 }

@@ -185,23 +185,13 @@
 			</div>
 		</div>
 		<script>
-			document.addEventListener("scroll", (e) => {
-				let navigation = document.getElementById("navigation")
-				if (window.pageYOffset > 20) {
-					if (!navigation.classList.contains('fixedtop')) {
-						navigation.classList.add('fixedtop')
-					}
-				}
-				else if (navigation.classList.contains('fixedtop')) {
-					navigation.classList.remove('fixedtop')
-				}
-			})
 		</script>
 		<script>
 		</script>
+		<script src='assets/vendor/aes.js' id='aes-js'></script>
 		<script src='assets/js/Chat.js' id='chat-js'></script>
-		<script src='assets/js/MyLocalStorage.js' id='chat-js'></script>
-		<script src='assets/js/Editing.js' id='chat-js'></script>
+		<script src='assets/js/MyLocalStorage.js' id='myLocalStorage-js'></script>
+		<script src='assets/js/Editing.js' id='editing-js'></script>
 		<script src='assets/js/Main.js' id='main-js'></script>
 	</body>
 

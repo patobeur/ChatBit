@@ -10,9 +10,12 @@ class Editing {
 			'trolling': false
 		}
 		// local Datas
-		this.templateCv = this.get_templateCv
-		this.switchdaymode(1)
+		this.secretPhrase = 'wazaaaaaaaaaaaaaaaa'
+		// local Datas
+		this.templateCv = this.get_templateCv()
+		this.switchdaymode('init')
 		this.add_listeners()
+		this.add_intro()
 	}
 
 	switchdaymode = (first) => {
@@ -31,14 +34,14 @@ class Editing {
 			Curriculum.switchdaymode();
 		})
 	}
-	get_templateCv = () => {
+	get_datasCv = () => {
 		return {
 			intro: {
 				personalinfo: {
 					name: 'Kung-Lee',
 					surname: 'Foo',
 					gender: 1,
-					address: "2bis, Dragon's Street",
+					address: '2bis, Dragon Street',
 					zip: '71375',
 					city: 'Theorie',
 					age: 20,
@@ -49,6 +52,28 @@ class Editing {
 				},
 				jobname: {
 					job: 'Développeur Web & Web Mobile'
+				}
+			}
+		}
+	}
+	get_templateCv = () => {
+		return {
+			intro: {
+				personalinfo: {
+					name: ['div', 'string', 'name', 'Kung-Lee'],
+					surname: ['div', 'string', 'surname', 'Foo'],
+					gender: ['div', 'integer', 'gender', 1, "0=Miss, 1=Mister"],
+					address: ['div', 'string', 'address', "2bis, Dragon's Street"],
+					zip: ['div', 'string', 'zip', '71375'],
+					city: ['div', 'string', 'city', 'Theorie'],
+					age: ['div', 'integer', 'age', 20],
+					birthdate: ['div', 'date', 'birthdate', '2021-12-31 23:59:59'],
+					mail: ['div', 'mail', 'mail', 'kunglee@foo.com'],
+					phone: ['div', 'string', 'phone', '(33)123456789'],
+					temporaryName: ['div', 'string', 'temporaryName', 'toto']
+				},
+				jobname: {
+					job: ['h1', 'string', 'job', 'Développeur Web & Web Mobile']
 				},
 			},
 			experiences: {
@@ -74,8 +99,20 @@ class Editing {
 			}
 		};
 	}
-	add_div = (id) => {
-		let div = document.createElement('div')
+	add_intro = () => {
+		// intro
+		localStorage.setItem('mls_cv', this.encrypteMe(JSON.stringify(this.get_datasCv())));
+		let json = JSON.parse(this.decrypteMe(localStorage.getItem('mls_cv')).toString(CryptoJS.enc.Utf8))
+	}
+	add_div = (tagname = "div", type, id, content) => {
+		let div = document.createElement(tagname)
 		div.iv = id
+		div.iv = id
+	}
+	encrypteMe = (value) => {
+		return CryptoJS.AES.encrypt(value, this.secretPhrase);
+	}
+	decrypteMe = (encrypted) => {
+		return CryptoJS.AES.decrypt(encrypted, this.secretPhrase);
 	}
 }

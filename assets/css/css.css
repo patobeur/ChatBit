@@ -10,6 +10,13 @@
           box-sizing: border-box;
 }
 
+a,
+a:visited,
+a:active {
+  color: #008521;
+  font-weight: bold;
+}
+
 body {
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
@@ -25,16 +32,6 @@ body {
 
 body #fullscreen {
   outline: 1px dashed black;
-}
-
-body.nightmode {
-  color: white;
-  background-color: black;
-  background-image: url(/assets/png/moon.png);
-}
-
-body.nightmode #fullscreen {
-  outline: 1px dashed white;
 }
 
 body #navigation {
@@ -154,7 +151,9 @@ body #fullscreen .row .col.entete {
 }
 
 body #fullscreen .row.titre {
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.63);
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
 body #fullscreen .exp.row .col.jobname {
@@ -165,7 +164,7 @@ body #fullscreen .exp.row .col.jobname {
 body #fullscreen .exp.row .col.task {
   height: 100%;
   width: 75%;
-  border-bottom: 1px solid #818181;
+  border-bottom: 1px solid rgba(102, 102, 102, 0.63);
 }
 
 body #fullscreen .exp.row .col.task ol > ul {
@@ -173,12 +172,33 @@ body #fullscreen .exp.row .col.task ol > ul {
   margin: 0;
 }
 
+body.nightmode {
+  color: white;
+  background-color: black;
+  background-image: url(/assets/png/moon.png);
+}
+
+body.nightmode a,
+body.nightmode a:visited,
+body.nightmode a:active {
+  color: #14ec00;
+}
+
+body.nightmode #fullscreen {
+  outline: 1px dashed white;
+  background-color: #292929;
+}
+
 @media print {
-  #navigation,
-  #formulaire {
+  body {
+    background-color: white;
+    background-image: unset;
+  }
+  body #navigation,
+  body #formulaire {
     display: none;
   }
-  #fullscreen {
+  body #fullscreen {
     margin: 0 auto;
     padding: 0;
     width: 100%;

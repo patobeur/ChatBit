@@ -11,6 +11,17 @@ window.addEventListener('load', () => {
 		if (eventkeydown.key === "Enter") { MyDataz.checkEnterKey() }
 	};
 
+	document.addEventListener("scroll", (e) => {
+		let navigation = document.getElementById("navigation")
+		if (window.pageYOffset > 20) {
+			if (!navigation.classList.contains('fixedtop')) {
+				navigation.classList.add('fixedtop')
+			}
+		}
+		else if (navigation.classList.contains('fixedtop')) {
+			navigation.classList.remove('fixedtop')
+		}
+	})
 }, false)
 
 // for (let i = 1; i < 30; i++) {
